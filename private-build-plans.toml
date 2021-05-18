@@ -6,6 +6,7 @@ no-cv-ss = false
 
 [buildPlans.iosevka-custom.variants.design]
 zero = "slashed"
+four = "closed"
 paren = "flat-arc"
 brace = "straight"
 number-sign = "upright"
