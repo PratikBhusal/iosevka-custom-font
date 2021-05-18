@@ -1,0 +1,20 @@
+[buildPlans.iosevka-custom]
+family = "Iosevka Custom"
+spacing = "fontconfig-mono"
+serifs = "slab"
+no-cv-ss = false
+
+[buildPlans.iosevka-custom.variants.design]
+zero = "slashed"
+paren = "flat-arc"
+brace = "straight"
+number-sign = "upright"
+ampersand = "closed"
+at = "threefold"
+dollar = "through-cap"
+cent = "through"
+percent = "rings-continuous-slash"
+lig-ltgteq = "flat"
+ascii-single-quote = "straight"
+ascii-grave = "straight"
+question = "smooth"
