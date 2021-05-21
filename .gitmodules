@@ -1,0 +1,8 @@
+[submodule "nerd-fonts"]
+	path = nerd-fonts
+	url = https://github.com/ryanoasis/nerd-fonts
+	branch = master
+[submodule "iosevka"]
+	path = iosevka
+	url = https://github.com/be5invis/Iosevka
+	branch = master
