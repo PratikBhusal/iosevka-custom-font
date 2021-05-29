@@ -1,5 +1,5 @@
 [buildPlans.iosevka-custom]
-family = "Iosevka Custom"   # <iosevka-custom> is your plan name
+family = "Iosevka"          # <iosevka-custom> is your plan name
 spacing = "fontconfig-mono" # Optional; Values: `normal`, `term`, `fontconfig-mono`, or `fixed`
 serifs = "sans"             # Optional; Values: `sans` or `slab`
 no-cv-ss = false
@@ -13,20 +13,29 @@ no-cv-ss = false
 
 # Optional; Configure single character's variant
 [buildPlans.iosevka-custom.variants.design]
-zero = "slashed"
-four = "closed"
-paren = "flat-arc"
-brace = "straight"
-number-sign = "upright"
 ampersand = "closed"
-at = "threefold"
-dollar = "through-cap"
-cent = "through"
-percent = "rings-continuous-slash"
-lig-ltgteq = "flat"
-ascii-single-quote = "straight"
 ascii-grave = "straight"
+ascii-single-quote = "straight"
+at = "threefold"
+brace = "straight"
+capital-g = "toothed-serifless-hooked"
+capital-q = "crossing"
+capital-z = "straight-serifless"
+cent = "through"
+dollar = "through-cap"
+eszet = "sulzbacher-descending"
+four = "closed"
+lig-ltgteq = "flat"
+m = "top-left-serifed"
+n = "straight-top-left-serifed"
+number-sign = "upright"
+paren = "flat-arc"
+percent = "rings-continuous-slash"
 question = "smooth"
+seven = "straight-crossbar"
+six = "closed-contour"
+z = "straight-serifless"
+zero = "slashed"
 
 # End variant section
 ###################################################################################################
@@ -35,9 +44,32 @@ question = "smooth"
 # Configure ligations
 
 [buildPlans.iosevka-custom.ligations]
-inherits = "default-calt"   # Optional; inherits an existing ligation set
-disables = []               # Optional; disable specific ligation groups, overrides inherited ligation set
-enables  = []               # Optional; enable specific ligation groups, overrides inherited ligation set
+# Optional; inherits an existing ligation set
+# inherits = "default-calt"
+
+# Optional; disable specific ligation groups, overrides inherited ligation set
+disables = []
+
+# Optional; enable specific ligation groups, overrides inherited ligation set
+enables  = [
+    'arrow',
+    'center-ops',
+    'connected-hyphen-as-semi-dashed-line',
+    'connected-number-sign',
+    'connected-tilde-as-wave',
+    'connected-underscore',
+    'dot-as-operator',
+    'eqeq',
+    'exeq',
+    'html-comment',
+    'ineq',
+    'kern-dotty',
+    'llgg',
+    'llggeq',
+    'ltgt-diamond',
+    'trig',
+    'exeqeq-dotted',
+]
 
 # End ligation section
 ###################################################################################################
@@ -94,10 +126,10 @@ enables  = []               # Optional; enable specific ligation groups, overrid
 #             If you decide to use custom widths you have to define all the widths you plan to use,
 #             otherwise they will not be built.
 
-# [buildPlans.iosevka-custom.widths.normal]
-# shape = 500      # Unit Width, measured in 1/1000 em.
-# menu  = 5        # Width grade for the font's names.
-# css   = "normal" # "font-stretch' property of webfont CSS.
+[buildPlans.iosevka-custom.widths.normal]
+shape = 600      # Unit Width, measured in 1/1000 em.
+menu  = 5        # Width grade for the font's names.
+css   = "normal" # "font-stretch' property of webfont CSS.
 
 # [buildPlans.iosevka-custom.widths.extended]
 # shape = 600
