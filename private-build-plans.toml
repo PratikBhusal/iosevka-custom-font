@@ -19,20 +19,15 @@ ascii-single-quote = "straight"
 at = "threefold"
 brace = "straight"
 capital-g = "toothed-serifless-hooked"
-capital-q = "crossing"
 capital-z = "straight-serifless"
 cent = "through"
-dollar = "through-cap"
-eszet = "sulzbacher-descending"
+eszet = "sulzbacher-descending" # ß (beta symbol)
 four = "closed"
 lig-ltgteq = "flat"
-m = "top-left-serifed"
-n = "straight-top-left-serifed"
 number-sign = "upright"
-paren = "flat-arc"
+paren = "large-contour"
 percent = "rings-continuous-slash"
 question = "smooth"
-seven = "straight-crossbar"
 six = "closed-contour"
 z = "straight-serifless"
 zero = "slashed"
@@ -54,9 +49,7 @@ disables = []
 enables  = [
     'arrow',
     'center-ops',
-    'connected-hyphen-as-semi-dashed-line',
     'connected-number-sign',
-    'connected-tilde-as-wave',
     'connected-underscore',
     'dot-as-operator',
     'eqeq',
@@ -68,7 +61,6 @@ enables  = [
     'llggeq',
     'ltgt-diamond',
     'trig',
-    'exeqeq-dotted',
 ]
 
 # End ligation section
@@ -126,6 +118,16 @@ enables  = [
 #             If you decide to use custom widths you have to define all the widths you plan to use,
 #             otherwise they will not be built.
 
+[buildPlans.iosevka-custom.weights.regular]
+shape = 400
+menu = 400
+css = 400
+
+[buildPlans.iosevka-custom.weights.bold]
+shape = 700
+menu = 700
+css = 700
+
 [buildPlans.iosevka-custom.widths.normal]
 shape = 600      # Unit Width, measured in 1/1000 em.
 menu  = 5        # Width grade for the font's names.
@@ -142,12 +144,20 @@ css   = "normal" # "font-stretch' property of webfont CSS.
 ###################################################################################################
 # Character Exclusion
 # Specify character ranges in the section below to exclude certain characters from the font being
-# built. Remove this section when this feature is not needed.
+# built.
 
-# [buildPlans.iosevka-custom.exclude-chars]
-# ranges = [
-#     [10003, 10008], # 0x2713 - 0x2718
-# ]
+[buildPlans.iosevka-custom.exclude-chars]
+ranges = [
+    [9829,   9829], # Octicons Part 1: 0x2665
+    [9889,   9889], # Octicons Part 2: 0x26a1
+    [62076, 62076], # Octicons Part 3: 0xf27c
+    [62464, 62632], # Octicons Part 4: 0xf400 - 0xf4a8
+    [61440, 62176], # Font Awesome: 0xf000-0xf2e0
+    [57856, 58025], # Font Awesome Extension: 0xe200 - 0xe2a9
+    [58874, 58923], # Seti-UI + Custom: 0xe5fa - 0xe62b
+    [59136, 59333], # Devicons: 0xe700 - 0xe7c5
+    [62208, 62227], # Font Logos: 0xf300 - 0xf313
+]
 
 # End character exclusion
 ###################################################################################################
