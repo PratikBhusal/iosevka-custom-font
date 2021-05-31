@@ -49,6 +49,7 @@ disables = []
 enables  = [
     'arrow',
     'center-ops',
+    'connected-hyphen-as-solid-line',
     'connected-number-sign',
     'connected-underscore',
     'dot-as-operator',
@@ -157,6 +158,7 @@ ranges = [
     [58874, 58923], # Seti-UI + Custom: 0xe5fa - 0xe62b
     [59136, 59333], # Devicons: 0xe700 - 0xe7c5
     [62208, 62227], # Font Logos: 0xf300 - 0xf313
+    [62720, 64838], # Material Design Icons: 0xf500 - 0xfd46
 ]
 
 # End character exclusion
