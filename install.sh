@@ -10,7 +10,7 @@ if [ -d dist/ ]; then
 
     if [ "$confirmation" ] && echo "$confirmation" | grep -E '^[Yy]$' > /dev/null; then
         echo "Deleting compiled base Iosevka fonts"
-        \rm -rf dist/
+        \rm -rf dist/ || exit
 
     fi
 fi
