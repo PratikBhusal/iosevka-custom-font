@@ -79,14 +79,14 @@ done
 
 # Move fonts to user font directory {{{
 mv -i \
-    "Iosevka Nerd Font Plus Font Awesome Plus Font Awesome Extension Plus Octicons Plus Font Logos (Font Linux) Plus Material Design Icons Windows Compatible.ttf" \
+    "Iosevka Nerd Font Plus Font Awesome Plus Font Awesome Extension Plus Octicons Plus Font Logos Plus Material Design Icons Windows Compatible.ttf" \
     "${XDG_DATA_HOME:-$HOME/.local/share}"/fonts/TTF/iosevka-custom-nerd-fonts-regular.ttf
 
 mv -i \
-    "Iosevka Bold Nerd Font Plus Font Awesome Plus Font Awesome Extension Plus Octicons Plus Font Logos (Font Linux) Plus Material Design Icons Windows Compatible.ttf" \
+    "Iosevka Bold Nerd Font Plus Font Awesome Plus Font Awesome Extension Plus Octicons Plus Font Logos Plus Material Design Icons Windows Compatible.ttf" \
     "${XDG_DATA_HOME:-$HOME/.local/share}"/fonts/TTF/iosevka-custom-nerd-fonts-bold.ttf
 
 mv -i \
-    "Iosevka Italic Nerd Font Plus Font Awesome Plus Font Awesome Extension Plus Octicons Plus Font Logos (Font Linux) Plus Material Design Icons Windows Compatible.ttf" \
+    "Iosevka Italic Nerd Font Plus Font Awesome Plus Font Awesome Extension Plus Octicons Plus Font Logos Plus Material Design Icons Windows Compatible.ttf" \
     "${XDG_DATA_HOME:-$HOME/.local/share}"/fonts/TTF/iosevka-custom-nerd-fonts-italic.ttf
 # Move fonts to user font directory }}}

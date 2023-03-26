@@ -1,8 +1,14 @@
-[buildPlans.iosevka-custom]
-family = "Iosevka"          # <iosevka-custom> is your plan name
+### See https://github.com/be5invis/Iosevka/blob/master/doc/custom-build.md for comprehensive
+### documentation of the options in this file
+
+[buildPlans.iosevka-custom] # <iosevka-custom> is your plan name
+family = "Iosevka"          # Font menu family name
 spacing = "fontconfig-mono" # Optional; Values: `normal`, `term`, `fontconfig-mono`, or `fixed`
 serifs = "sans"             # Optional; Values: `sans` or `slab`
-no-cv-ss = false
+no-cs-ss = false            # Export cv ## / ss ## OpenType features
+export-glyph-names = false  # Set this to true for ligature support in Kitty (increased file size)
+
+webfont-formats = ['ttf', 'woff2']
 
 ###################################################################################################
 # Configure variants
@@ -13,24 +19,27 @@ no-cv-ss = false
 
 # Optional; Configure single character's variant
 [buildPlans.iosevka-custom.variants.design]
-ampersand = "closed"
 ascii-grave = "straight"
 ascii-single-quote = "straight"
-at = "threefold"
 brace = "straight"
-capital-g = "toothed-serifless-hooked"
-capital-z = "straight-serifless"
-cent = "through"
 eszet = "sulzbacher-descending" # ß (beta symbol)
 four = "closed"
-lig-ltgteq = "flat"
-number-sign = "upright"
+lig-equal-chain = "without-notch"
+lig-hyphen-chain = "without-notch"
 paren = "large-contour"
 percent = "rings-continuous-slash"
 question = "smooth"
 six = "closed-contour"
-z = "straight-serifless"
-zero = "slashed"
+
+# # Optional; Configure single character's variant for Upright and Oblique; Overrides [design]
+# [buildPlans.iosevka-custom.variants.upright]
+# i = 'zshaped'
+# l = 'zshaped'
+
+# # Optional; Configure single character's variant for Italic only; Overrides [design]
+# [buildPlans.iosevka-custom.variants.italic]
+# i = 'tailed-serifed'
+# l = 'tailed-serifed'
 
 # End variant section
 ###################################################################################################
@@ -38,29 +47,35 @@ zero = "slashed"
 ###################################################################################################
 # Configure ligations
 
+# Relevant Tracking Links:
+# https://github.com/be5invis/Iosevka/blob/main/params/ligation-set.toml
+# https://github.com/be5invis/Iosevka/blob/main/doc/custom-build.md
+
+# Relevant Permalinks Links:
+# https://github.com/be5invis/Iosevka/commit/fd8d7ad3825f171de78c134cf94fecbe71af66fa#diff-6f11193c8393b9c91da3c256ebe3aa6fb317c22e6e76d557167dd926714d3a97
+
 [buildPlans.iosevka-custom.ligations]
-# Optional; inherits an existing ligation set
-# inherits = "default-calt"
-
-# Optional; disable specific ligation groups, overrides inherited ligation set
-disables = []
-
+# inherits = "default-calt"   # Optional; inherits an existing ligation set
+# disables = []               # Optional; disable specific ligation groups, overrides inherited ligation set
 # Optional; enable specific ligation groups, overrides inherited ligation set
 enables  = [
-    'arrow',
+    'arrow-l',
+    'arrow-r',
+    'brst',
+    'center-op-influence-dot',
     'center-ops',
-    'connected-hyphen-as-solid-line',
+    'connected-hyphen',
     'connected-number-sign',
     'connected-underscore',
-    'dot-as-operator',
     'eqeq',
     'exeq',
+    'gteq',
     'html-comment',
-    'ineq',
     'kern-dotty',
     'llgg',
     'llggeq',
-    'ltgt-diamond',
+    'lteq',
+    'ltgt-diamond-tag',
     'trig',
 ]
 
@@ -77,20 +92,20 @@ enables  = [
 #             If you decide to use custom weights you have to define all the weights you
 #             plan to use otherwise they will not be built.
 
-# [buildPlans.iosevka-custom.weights.regular]
-# shape = 400  # Weight for glyph shapes.
-# menu  = 400  # Weight for the font's names.
-# css   = 400  # Weight for webfont CSS.
+[buildPlans.iosevka-custom.weights.regular]
+shape = 400  # Weight for glyph shapes.
+menu  = 400  # Weight for the font's names.
+css   = 400  # Weight for webfont CSS.
 
 # [buildPlans.iosevka-custom.weights.book]
 # shape = 450
 # menu  = 450  # Use 450 here to name the font's weight "Book"
 # css   = 450
 
-# [buildPlans.iosevka-custom.weights.bold]
-# shape = 700
-# menu  = 700
-# css   = 700
+[buildPlans.iosevka-custom.weights.bold]
+shape = 700
+menu  = 700
+css   = 700
 
 # End weight section
 ###################################################################################################
@@ -100,11 +115,23 @@ enables  = [
 # Format: <upright|italic|oblique> = <"normal"|"italic"|"oblique">
 # When this section is absent, all slopes would be built.
 
-# [buildPlans.iosevka-custom.slopes]
-# upright = "normal"
-# italic = "italic"
-# oblique = "oblique"
+# [buildPlans.iosevka-custom.slopes.upright]
+# angle = 0             # Angle in degrees. Valid range [0, 15]
+# shape = "upright"     # Slope grade used for shape selection.  `upright` | `oblique` | `italic`
+# menu  = "upright"     # Slope grade used for naming.           `upright` | `oblique` | `italic`
+# css   = "normal"      # Slope grade used for webfont CSS.      `normal`  | `oblique` | `italic`
 
+# [buildPlans.iosevka-custom.slopes.oblique]
+# angle = 9.4
+# shape = "oblique"
+# menu  = "oblique"
+# css   = "oblique"
+
+# [buildPlans.iosevka-custom.slopes.italic]
+# angle = 9.4
+# shape = "italic"
+# menu  = "italic"
+# css   = "italic"
 # End slope section
 ###################################################################################################
 
@@ -118,16 +145,6 @@ enables  = [
 #             width are equal to, or a simple multiple of the unit width.
 #             If you decide to use custom widths you have to define all the widths you plan to use,
 #             otherwise they will not be built.
-
-[buildPlans.iosevka-custom.weights.regular]
-shape = 400
-menu = 400
-css = 400
-
-[buildPlans.iosevka-custom.weights.bold]
-shape = 700
-menu = 700
-css = 700
 
 [buildPlans.iosevka-custom.widths.normal]
 shape = 600      # Unit Width, measured in 1/1000 em.
@@ -144,20 +161,21 @@ css   = "normal" # "font-stretch' property of webfont CSS.
 
 ###################################################################################################
 # Character Exclusion
-# Specify character ranges in the section below to exclude certain characters from the font being
-# built.
+# Specify character ranges in the section below to exclude certain characters
+# from the font being built. Remove this section when this feature is not
+# needed.
 
 [buildPlans.iosevka-custom.exclude-chars]
 ranges = [
     [9829,   9829], # Octicons Part 1: 0x2665
     [9889,   9889], # Octicons Part 2: 0x26a1
     [62076, 62076], # Octicons Part 3: 0xf27c
-    [62464, 62632], # Octicons Part 4: 0xf400 - 0xf4a8
+    [62464, 62633], # Octicons Part 4: 0xf400 - 0xf4a9
     [61440, 62176], # Font Awesome: 0xf000-0xf2e0
     [57856, 58025], # Font Awesome Extension: 0xe200 - 0xe2a9
-    [58874, 58923], # Seti-UI + Custom: 0xe5fa - 0xe62b
+    [58874, 58929], # Seti-UI + Custom: 0xe5fa - 0xe631
     [59136, 59333], # Devicons: 0xe700 - 0xe7c5
-    [62208, 62227], # Font Logos: 0xf300 - 0xf313
+    [62208, 62253], # Font Logos: 0xf300 - 0xf32d
     [62720, 64838], # Material Design Icons: 0xf500 - 0xfd46
 ]
 
