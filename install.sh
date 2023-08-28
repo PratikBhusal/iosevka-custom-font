@@ -1,5 +1,20 @@
 #!/usr/bin/env sh
 
+if ! [ -x "$(command -v git)" ]; then
+    echo 'Error! Please install git' >&2
+    exit 1
+fi
+
+if ! [ -x "$(command -v  docker)" ]; then
+    echo "Error! Please install docker to compile Iosevka font"
+    exit 2
+fi
+
+if ! [ -x "$(command -v  fontforge)" ]; then
+    echo "Error! Please install fontforge to utilize nerdfont patches"
+    exit 3
+fi
+
 # Setup Base Font {{{
 
 # Check for dist/ folder reuse {{{
@@ -58,6 +73,8 @@ cat > .git/info/sparse-checkout << EOF
 /images/
 
 /src/glyphs/
+/bin/scripts/name_parser/FontnameParser.py
+/bin/scripts/name_parser/FontnameTools.py
 EOF
 
 git checkout
