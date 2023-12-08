@@ -170,13 +170,13 @@ ranges = [
     [9829,   9829], # Octicons Part 1: 0x2665
     [9889,   9889], # Octicons Part 2: 0x26a1
     [62076, 62076], # Octicons Part 3: 0xf27c
-    [62464, 62633], # Octicons Part 4: 0xf400 - 0xf4a9
+    [62464, 62770], # Octicons Part 4: 0xf400 - 0xf532
     [61440, 62176], # Font Awesome: 0xf000-0xf2e0
     [57856, 58025], # Font Awesome Extension: 0xe200 - 0xe2a9
-    [58874, 58929], # Seti-UI + Custom: 0xe5fa - 0xe631
+    [58874, 59057], # Seti-UI + Custom: 0xe5fa - 0xe6b1
     [59136, 59333], # Devicons: 0xe700 - 0xe7c5
-    [62208, 62253], # Font Logos: 0xf300 - 0xf32d
-    [62720, 64838], # Material Design Icons: 0xf500 - 0xfd46
+    [62208, 62322], # Font Logos: 0xf300 - 0xf372
+    [983041, 989936], # Material Design Icons: 0xf0001 - f1af0
 ]
 
 # End character exclusion
