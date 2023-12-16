@@ -6,7 +6,7 @@ family = "Iosevka"          # Font menu family name
 spacing = "fontconfig-mono" # Optional; Values: `normal`, `term`, `fontconfig-mono`, or `fixed`
 serifs = "sans"             # Optional; Values: `sans` or `slab`
 no-cs-ss = false            # Export cv ## / ss ## OpenType features
-export-glyph-names = false  # Set this to true for ligature support in Kitty (increased file size)
+export-glyph-names = true   # Set this to true for ligature support in Kitty (increased file size)
 
 webfont-formats = ['ttf', 'woff2']
 
@@ -19,17 +19,21 @@ webfont-formats = ['ttf', 'woff2']
 
 # Optional; Configure single character's variant
 [buildPlans.iosevka-custom.variants.design]
-ascii-grave = "straight"
-ascii-single-quote = "straight"
-brace = "straight"
-eszet = "sulzbacher-descending" # ß (beta symbol)
-four = "closed"
-lig-equal-chain = "without-notch"
-lig-hyphen-chain = "without-notch"
-paren = "large-contour"
-percent = "rings-continuous-slash"
-question = "smooth"
-six = "closed-contour"
+# TODO: Figure out what the id is for the letters 'O' and 'o'
+ascii-grave = "straight" # `
+ascii-single-quote = "straight" # '
+asterisk = "penta-mid" # *
+brace = "straight" # {
+eszet = "sulzbacher-descending-serifless" # ß (beta symbol)
+four = "closed" # 4
+guillemet = "straight" # «
+lig-equal-chain = "without-notch" # ==
+lig-hyphen-chain = "without-notch" # --
+paren = "large-contour" # (
+percent = "rings-continuous-slash" # %
+question = "smooth" # ?
+six = "closed-contour" # 6
+zero = "oval-tall-slashed" # 0
 
 # # Optional; Configure single character's variant for Upright and Oblique; Overrides [design]
 # [buildPlans.iosevka-custom.variants.upright]
@@ -60,6 +64,7 @@ six = "closed-contour"
 # Optional; enable specific ligation groups, overrides inherited ligation set
 enables  = [
     'arrow-l',
+    'arrow-lr',
     'arrow-r',
     'brst',
     'center-op-influence-dot',
